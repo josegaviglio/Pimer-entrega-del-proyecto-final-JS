@@ -29,7 +29,9 @@ function selectProduct() {
 
 do {
     selectProduct()
-    productosSeleccionados.push(listadoProductos[parseInt(producto) - 1])
+    if((parseInt(producto) - 1) >= 0){
+        productosSeleccionados.push(listadoProductos[parseInt(producto) - 1])
+    }
 
 }
 while (producto != 0)
@@ -37,13 +39,14 @@ while (producto != 0)
 function calculateTotal() {
     let total = 0;
 
-    for (i in productosSeleccionados) {
+    for (let i = 0; i < productosSeleccionados.length; i++) {
         total += productosSeleccionados[i].precio;
     }
+
     // for (let i = 0; i < productosSeleccionados.length; i++) {
     //     total += productosSeleccionados[i].precio;
     // }
-    // console.log(`El precio total de la compra es de: ${total} `);
+     console.log(`El precio total de la compra es de: ${total} `);
 }
 
 calculateTotal();
